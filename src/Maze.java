@@ -33,20 +33,16 @@ public class Maze {
     }
 
     // method to find a space by its ID
-    public Space findSpace(SpaceID id) {
+    public Space findSpace(String id) {
 
         // loop through all spaces
         for (int i = 0; i < size; i++) {
 
             // check if the current space ID matches the given ID
-            if (spaces[i].getID().equals(id)) {
+            if (spaces[i].getSpaceId().equals(id)) {
                 return spaces[i]; // return the matching space
             }
-        }
-
-        // return null if no space is found
-        return null;
-    }
+        }return null;}
 
     // returns the start space
     public Space getStart() {
