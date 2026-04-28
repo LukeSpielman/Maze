@@ -1,4 +1,8 @@
+import java.util.UUID;
+
 public class Space {
+
+    private static final int MAX_ADJACENT = 4;
 
     private String type;
     private String spaceId;
@@ -13,8 +17,8 @@ public class Space {
         type = t;
         row = r;
         col = c;
-        spaceId = Integer.toString(r * numCols + c);
-        adjacent = new Space[4];
+        spaceId = UUID.randomUUID().toString();
+        adjacent = new Space[MAX_ADJACENT];
         adjacentCount = 0;
         onPath = false;
         visited = false;
@@ -29,7 +33,7 @@ public class Space {
     }
 
     public void addAdjacent(Space s) {
-        if (adjacentCount < 4) {
+        if (adjacentCount < MAX_ADJACENT) {
             adjacent[adjacentCount] = s;
             adjacentCount++;
         }
@@ -43,16 +47,15 @@ public class Space {
         return result;
     }
 
-    public String getType()    { return type; }
-    public String getSpaceId() { return spaceId; }
-    public int getRow()        { return row; }
-    public int getCol()        { return col; }
-    public boolean isBlocked() { return type.equals("X"); }
-     public boolean isStart()   { return type.equals("S"); }
-    public boolean isEnd()     { return type.equals("E"); }
-    public boolean isOnPath()           { return onPath; }
-    public void setOnPath(boolean value)    { onPath = value; }
-    public boolean isVisited()          { return visited; }
-    public void setVisited(boolean value)   { visited = value; }
-
+    public String getType()                  { return type; }
+    public String getSpaceId()               { return spaceId; }
+    public int getRow()                      { return row; }
+    public int getCol()                      { return col; }
+    public boolean isBlocked()               { return type.equals("X"); }
+    public boolean isStart()                 { return type.equals("S"); }
+    public boolean isEnd()                   { return type.equals("E"); }
+    public boolean isOnPath()                { return onPath; }
+    public void setOnPath(boolean value)     { onPath = value; }
+    public boolean isVisited()               { return visited; }
+    public void setVisited(boolean value)    { visited = value; }
 }
