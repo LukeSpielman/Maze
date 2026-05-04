@@ -20,7 +20,7 @@ class GridReaderTest {
     @Test
     void readSample() {
         GridReader reader = new GridReader();
-        Maze maze = reader.MazeRead("Maze.csv");
+        Maze maze = reader.MazeRead("Sample.csv");
         assertNotNull(maze);
         assertNotNull(maze.getStart());
         assertTrue(maze.getStart().isStart());
