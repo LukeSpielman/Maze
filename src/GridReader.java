@@ -8,7 +8,6 @@ public class GridReader extends MazeReader {
             File inputFile = new File(fileName);
             Scanner countScanner = new Scanner(inputFile);
             int rowCount = 0;
-
             while (countScanner.hasNextLine()) {
                 countScanner.nextLine();
                 rowCount++;
