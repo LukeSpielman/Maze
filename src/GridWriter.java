@@ -18,11 +18,10 @@ public class GridWriter extends MazeWriter {
         int maxCol = 0;
 
         for (int i = 0; i < spaces.length; i++) {
-
+            if (spaces[i] == null) continue;
             if (spaces[i].getRow() > maxRow) {
                 maxRow = spaces[i].getRow();
             }
-
             if (spaces[i].getCol() > maxCol) {
                 maxCol = spaces[i].getCol();
             }
@@ -37,22 +36,18 @@ public class GridWriter extends MazeWriter {
         }
 
         for (int i = 0; i < spaces.length; i++) {
-
+            if (spaces[i] == null) continue;
             Space s = spaces[i];
-
             int r = s.getRow();
             int c = s.getCol();
 
             if (s.isStart()) {
                 grid[r][c] = "S";
-            }
-            else if (s.isEnd()) {
+            } else if (s.isEnd()) {
                 grid[r][c] = "E";
-            }
-            else if (s.isOnPath()) {
+            } else if (s.isOnPath()) {
                 grid[r][c] = "*";
-            }
-            else {
+            } else {
                 grid[r][c] = "O";
             }
         }
